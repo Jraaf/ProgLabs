@@ -9,6 +9,7 @@ using System.Net;
 using System.Runtime;
 using System.Text.Json;
 using System.Threading.Tasks;
+using Newtonsoft.Json;
 
 namespace Lab1
 {
@@ -46,7 +47,7 @@ namespace Lab1
                 }
             }
         }
-        static async Task Ex2Async()
+        static async Task Ex2()
         {
             Dictionary<string, int> d1 = new Dictionary<string, int>()
             {
@@ -66,13 +67,11 @@ namespace Lab1
                     OutPut.Add(item.Key, item.Value + d2[item.Key]);
                 }
             }
+            var path = @"out.json";
 
-            using (FileStream fs = new FileStream("C:\\Users\\nasib\\Desktop\\Projects\\ProgLabs\\Lab1\\Lab1\\out.json",
-                FileMode.OpenOrCreate))
-            {
-                await JsonSerializer.SerializeAsync<Dictionary<string, int>>(fs,OutPut,options);
-                Console.WriteLine("Data has been saved to file");
-            }
+            JsonConvert.SerializeObject(OutPut, Formatting.Indented);
+            File.WriteAllText(path, JsonConvert.SerializeObject(OutPut, Formatting.Indented));
+
         }
         static void Ex3()
         {
@@ -85,10 +84,11 @@ namespace Lab1
             };
             var over100 = from product in ProductMenu where product.Value >= 100 select product;
             var under100= from product in ProductMenu where product.Value < 100 select product;
-            string Products101= JsonSerializer.Serialize(over100,options);
-            string Products99= JsonSerializer.Serialize(under100,options);
-            Console.WriteLine(Products101);
-            Console.WriteLine(Products99);
+
+            string Products= JsonConvert.SerializeObject(under100, Formatting.Indented)+ 
+                JsonConvert.SerializeObject(over100, Formatting.Indented);
+            string path = @"C:\Users\nasib\Desktop\Projects\ProgLabs\ProgLabs\Lab1\Lab1\ex3.json";
+            File.WriteAllText(path,Products);
         }
     }
 }
