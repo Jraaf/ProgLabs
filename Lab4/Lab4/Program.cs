@@ -11,7 +11,10 @@ namespace Lab4
     {
         static void Main(string[] args)
         {
+            Console.WriteLine("ex1");
             Ex1();
+            Console.WriteLine("ex2");
+            Ex2();
             Console.ReadLine();
         }
 
