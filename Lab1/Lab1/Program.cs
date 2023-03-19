@@ -15,16 +15,14 @@ namespace Lab1
 {
     internal class Program
     {
-        static JsonSerializerOptions options = new JsonSerializerOptions
-        {
-            WriteIndented = true
-        };
-
         static void Main(string[] args)
         {
             Ex3();
         }
 
+        /*Заданий файл з текстом англійською мовою. 
+         * Виділити всі різні слова. Слова, що відрізняються тільки регістром літер, 
+         * вважати однаковими.*/
         static void Ex1()
         {
             var path = @"C:\\Users\\nasib\\Desktop\\Projects\\ProgLabs\\Lab1\\Lab1\\Text.txt";
@@ -47,6 +45,11 @@ namespace Lab1
                 }
             }
         }
+        /*Дано кілька словників з різними значеннями ключів цілих чисел.
+         * Вивести один словник, значення ключів якого складатимуть суму цих значень вхідних
+         * словників. Вхідні словники: [{'item': 'item1', 'amount': 400},
+         * {'item': 'item2', 'amount': 300}, {'item': 'item1', 'amount': 750}].
+         * Результат: {'item1': 1150, 'item2': 300}*/
         static async Task Ex2()
         {
             Dictionary<string, int> d1 = new Dictionary<string, int>()
@@ -67,12 +70,17 @@ namespace Lab1
                     OutPut.Add(item.Key, item.Value + d2[item.Key]);
                 }
             }
-            var path = @"out.json";
+            var path = @"C:\Users\nasib\Desktop\Projects\ProgLabs\ProgLabs\Lab1\Lab1\out.json";
 
             JsonConvert.SerializeObject(OutPut, Formatting.Indented);
             File.WriteAllText(path, JsonConvert.SerializeObject(OutPut, Formatting.Indented));
 
         }
+
+        /*Програма створює словник даних Dictionary продуктів харчування: 
+         * ключ - товар, значення - ціна. 
+         * Створити дві цінові групи: 
+         * товари дорожче і дешевше 100 гривень (1) (3)*/
         static void Ex3()
         {
             Dictionary<string, double> ProductMenu = new Dictionary<string, double>()
