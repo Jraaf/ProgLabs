@@ -8,19 +8,20 @@ namespace Lab4.Ex2.Tabletop
 {
     internal class Desktop:TableTop
     {
-        public string CPU { get; set; }  
-        public string GPU { get; set; }
-        public int RAM { get; set; }
+        private string CPU { get; set; }
+        private string GPU { get; set; }
+        private int RAM { get; set; }
 
         private List<string> InstalledApps=new List<string>();
         private List<string> InstalledGames=new List<string>();
-        public Desktop(string brandName, int EnergyConsumption,string CPU,string GPU,int RAM) : base(name: "Desktop")
+        public Desktop(string brandName, int EnergyConsumption,string CPU,string GPU,int RAM) 
+            : base(name: "Desktop")
         {
             BrandName = brandName;
-            EnergyConsumption = this.EnergyConsumption >= 300 ? this.EnergyConsumption : 300;
-            CPU = this.CPU;
-            GPU = this.GPU;
-            RAM = this.RAM;
+            this.EnergyConsumption =EnergyConsumption >= 300 ? EnergyConsumption : 300;
+            this.CPU = CPU;
+            this.GPU = GPU;
+            this.RAM = RAM;
         }
         public void DownloadApp(string AppName)
         {
@@ -59,6 +60,7 @@ namespace Lab4.Ex2.Tabletop
         public override void ShowCharactreristics()
         {
             Console.WriteLine($"My desktop is very cool:" +
+                $"\nit consumes {EnergyConsumption} W" +
                 $"\n\tCPU: {CPU}" +
                 $"\n\tGPU: {GPU}" +
                 $"\n\tRAM: {RAM}" +

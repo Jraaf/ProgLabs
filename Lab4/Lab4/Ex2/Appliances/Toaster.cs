@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace Lab4.Ex2.Appliances
 {
-    internal class Toater:Appliance
+    internal class Toaster:Appliance
     {
-        public Toater(string BrandName, int EnergyConsuption) : base(name: "Microwave")
+        public Toaster(string BrandName, int EnergyConsuption) : base(name: "Microwave")
         {
             BrandName = this.BrandName;
             EnergyConsumption = this.EnergyConsumption >= 700 ? this.EnergyConsumption : 700;

@@ -49,7 +49,7 @@
     <Compile Include="Ex2\Appliance.cs" />
     <Compile Include="Ex2\Appliances\Kettle.cs" />
     <Compile Include="Ex2\Appliances\Microwave.cs" />
-    <Compile Include="Ex2\Appliances\Toater.cs" />
+    <Compile Include="Ex2\Appliances\Toaster.cs" />
     <Compile Include="Ex2\Device.cs" />
     <Compile Include="Ex2\TableTop.cs" />
     <Compile Include="Ex2\Tabletop\Desktop.cs" />

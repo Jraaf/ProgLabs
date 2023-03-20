@@ -35,15 +35,12 @@ namespace Lab4
             if (obj == null || GetType() != obj.GetType())
             {
                 return false;
-            }else if(obj is Day)
+            }else
             {
                 Day d = (Day)obj;
                 return d.hour.Hours==hour.Hours && d.minute.Minutes==minute.Minutes;
             }
             
-            // TODO: write your implementation of Equals() here
-            throw new NotImplementedException();
-            return base.Equals(obj);
         }
 
         // override object.GetHashCode
